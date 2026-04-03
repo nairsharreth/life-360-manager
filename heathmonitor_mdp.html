@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Health Monitor</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+font-family:'Poppins';
+background:linear-gradient(135deg,#022c22,#065f46);
+color:white;
+padding:30px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+h1{
+font-size:48px;
+text-align:center;
+background:linear-gradient(90deg,#4ade80,#22d3ee);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:30px;
+}
+
+.card{
+background:#064e3b;
+padding:25px;
+border-radius:16px;
+margin-bottom:20px;
+}
+
+input{
+width:100%;
+padding:10px;
+border-radius:10px;
+border:none;
+margin-top:8px;
+}
+
+button{
+padding:12px;
+border-radius:10px;
+border:none;
+background:linear-gradient(90deg,#22c55e,#06b6d4);
+color:white;
+font-weight:bold;
+margin-top:10px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px;
+}
+
+.stat{
+padding:20px;
+border-radius:10px;
+background:#065f46;
+text-align:center;
+font-size:22px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Health Monitor</h1>
+
+<div class="card">
+
+<input id="steps" placeholder="Steps">
+<input id="water" placeholder="Water Intake (L)">
+<input id="sleep" placeholder="Sleep Hours">
+<input id="hr" placeholder="Heart Rate">
+
+<button onclick="saveHealth()">Save Data</button>
+
+<button onclick="resetHealth()">Reset Data</button>
+
+</div>
+
+<div class="grid">
+
+<div class="stat">Steps<br><span id="s"></span></div>
+<div class="stat">Water<br><span id="w"></span></div>
+<div class="stat">Sleep<br><span id="sl"></span></div>
+<div class="stat">HR<br><span id="h"></span></div>
+
+</div>
+
+</div>
+
+<script>
+
+function saveHealth(){
+
+localStorage.setItem("steps",steps.value)
+localStorage.setItem("water",water.value)
+localStorage.setItem("sleep",sleep.value)
+localStorage.setItem("hr",hr.value)
+
+load()
+
+}
+
+function resetHealth(){
+
+localStorage.clear()
+
+load()
+
+}
+
+function load(){
+
+s.innerText=localStorage.getItem("steps")||0
+w.innerText=localStorage.getItem("water")||0
+sl.innerText=localStorage.getItem("sleep")||0
+h.innerText=localStorage.getItem("hr")||0
+
+}
+
+load()
+
+</script>
+</body>
+</html>

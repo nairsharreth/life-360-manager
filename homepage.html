@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Life360 Manager</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+margin:0;
+font-family:'Poppins',sans-serif;
+background:linear-gradient(135deg,#0f172a,#1e3a8a);
+color:white;
+overflow-x:hidden;
+}
+
+/* Background glow circles */
+body::before{
+content:"";
+position:absolute;
+width:400px;
+height:400px;
+background:#38bdf8;
+filter:blur(150px);
+top:-100px;
+left:-100px;
+}
+
+body::after{
+content:"";
+position:absolute;
+width:400px;
+height:400px;
+background:#a78bfa;
+filter:blur(150px);
+bottom:-100px;
+right:-100px;
+}
+
+/* Container */
+.container{
+max-width:1100px;
+margin:auto;
+padding:40px;
+position:relative;
+z-index:1;
+}
+
+/* Title */
+h1{
+font-size:60px;
+text-align:center;
+background:linear-gradient(90deg,#38bdf8,#22c55e,#facc15,#a78bfa);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+margin-bottom:10px;
+}
+
+.subtitle{
+text-align:center;
+color:#cbd5f5;
+margin-bottom:40px;
+}
+
+/* Grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+}
+
+/* Card */
+.card{
+backdrop-filter:blur(20px);
+background:rgba(255,255,255,0.05);
+border:1px solid rgba(255,255,255,0.1);
+padding:30px;
+border-radius:20px;
+cursor:pointer;
+transition:0.4s;
+position:relative;
+overflow:hidden;
+}
+
+/* Glow hover */
+.card:hover{
+transform:translateY(-10px) scale(1.03);
+box-shadow:0 20px 50px rgba(0,0,0,0.7);
+}
+
+/* Gradient border glow */
+.card::before{
+content:"";
+position:absolute;
+inset:0;
+border-radius:20px;
+padding:2px;
+background:linear-gradient(90deg,#38bdf8,#22c55e,#a78bfa,#facc15);
+-webkit-mask:
+linear-gradient(#fff 0 0) content-box,
+linear-gradient(#fff 0 0);
+-webkit-mask-composite: xor;
+mask-composite: exclude;
+}
+
+/* Icon */
+.icon{
+font-size:40px;
+margin-bottom:10px;
+}
+
+/* Title */
+.title{
+font-size:24px;
+font-weight:600;
+margin-bottom:10px;
+}
+
+/* Description */
+.desc{
+font-size:14px;
+color:#cbd5f5;
+}
+
+/* Bottom section */
+.footer{
+text-align:center;
+margin-top:50px;
+color:#94a3b8;
+font-size:14px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Life360 Manager</h1>
+
+<div class="subtitle">
+Manage your life. One dashboard. All in control.
+</div>
+
+<div class="grid">
+
+<div class="card" onclick="openPage('finance_mdp.html')">
+<div class="icon">💰</div>
+<div class="title">Finance Tracker</div>
+<div class="desc">Track expenses, budgets, and spending insights</div>
+</div>
+
+<div class="card" onclick="openPage('activitytracker_mdp.html')">
+<div class="icon">📋</div>
+<div class="title">Activity Tracker</div>
+<div class="desc">Manage tasks and boost productivity</div>
+</div>
+
+<div class="card" onclick="openPage('heathmonitor_mdp.html')">
+<div class="icon">❤️</div>
+<div class="title">Health Monitor</div>
+<div class="desc">Track your daily health metrics</div>
+</div>
+
+<div class="card" onclick="openPage('energytracker_mdp.html')">
+<div class="icon">⚡</div>
+<div class="title">Energy Tracker</div>
+<div class="desc">Monitor usage and optimize consumption</div>
+</div>
+
+</div>
+
+<div class="footer">
+Designed as a unified Life Management System
+</div>
+
+</div>
+
+<script>
+
+function openPage(page){
+    window.location.href = page;
+}
+
+</script>
+
+</body>
+</html>
